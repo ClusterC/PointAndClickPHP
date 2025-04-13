@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>PointAndClickPHP - Interactive Scene</title>
+<title>MyRoom</title>
+  <!-- เพิ่มบรรทัดนี้เพื่อกำหนด Favicon -->
+  <link rel="icon" type="image/png" href="icon.png">
+  <!-- หรือถ้าใช้ไฟล์ .ico -->
+  <!-- <link rel="icon" type="image/x-icon" href="path/to/your/favicon.ico"> -->
+  <!-- หรือถ้าใช้ไฟล์ .svg -->
+  <!-- <link rel="icon" type="image/svg+xml" href="path/to/your/myicon.svg"> -->
 <style>
   body, html {
     height: 100%;
