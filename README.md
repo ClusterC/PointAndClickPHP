@@ -28,5 +28,5 @@
 
 *   เปิดเว็บเบราว์เซอร์แล้วไปที่:
     ```
-    http://localhost/PointAndClickPHP/
+    http://localhost/PointAndClickPHP/main.php
     ```
