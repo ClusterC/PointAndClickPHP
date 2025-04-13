@@ -23,19 +23,7 @@
     git clone <your-repository-url> PointAndClickPHP
     ```
     *(ถ้าไม่ได้ใช้ Git ก็สามารถดาวน์โหลดไฟล์โปรเจกต์เป็น ZIP แล้วแตกไฟล์ไว้ใน `C:\xampp\htdocs\PointAndClickPHP` ได้เลย)*
-
-3.  **ตั้งค่า Database (ถ้ามี):**
-    *   เปิดเว็บเบราว์เซอร์แล้วไปที่ `http://localhost/phpmyadmin`
-    *   สร้าง Database ใหม่ (เช่น ชื่อ `point_and_click_db`)
-    *   Import ไฟล์ `.sql` (ถ้ามี) เพื่อสร้างตารางและข้อมูลเริ่มต้น
-    *   แก้ไขไฟล์ตั้งค่าการเชื่อมต่อฐานข้อมูลในโปรเจกต์ของคุณ (เช่น `config.php`, `db_connect.php`) ให้ตรงกับข้อมูล Database ที่สร้างขึ้น (ชื่อ database, username ปกติคือ `root`, password ปกติจะว่างเปล่าสำหรับ XAMPP)
-
-4.  **ติดตั้ง Dependencies (ถ้ามี):**
-    *   ถ้าโปรเจกต์ของคุณใช้ Composer ให้เปิด Command Prompt หรือ Terminal ไปที่โฟลเดอร์โปรเจกต์ (`C:\xampp\htdocs\PointAndClickPHP`) แล้วรัน:
-    ```bash
-    composer install
-    ```
-
+    
 ### การรันโปรเจกต์ (Running the Application)
 
 *   เปิดเว็บเบราว์เซอร์แล้วไปที่:
