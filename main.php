@@ -32,6 +32,12 @@
       $overlayImageSrc = 'onlights.png';
       $lightSoundSrc = 'onlights.wav';
       $bubbleSoundSrc = 'bubble.wav'; // Define bubble sound source
+      $leafSoundSrc = 'leaf.wav'; // <-- *** เพิ่ม: กำหนดไฟล์เสียงใบไม้ ***
+      // *** เพิ่ม: กำหนดไฟล์เสียงสำหรับจุดใหม่ ***
+      $mirrorSoundSrc = 'glassknocking.wav'; // เสียงกระจก
+      $screenSoundSrc = 'kockingonglasswindow.wav';   // เสียงจอ
+      $keyboardSoundSrc = 'keyboard.ogg'; // เสียงคีย์บอร์ด
+      $paperSoundSrc = 'book.wav'; // เสียงกระดาษ
 
       // Player 1
       $musicSrc1 = 'Shut up My Moms Calling.mp3';
@@ -40,18 +46,19 @@
       $playerArtist1 = 'HOTEL UGLY';
 
       // Player 2
-      $musicSrc2 = 'Another Song.mp3';
-      $playerImageSrc2 = 'Another Album Art.jpg';
-      $playerTitle2 = 'ANOTHER SONG TITLE';
-      $playerArtist2 = 'ANOTHER ARTIST';
+      $musicSrc2 = 'See You Again.mp3';
+      $playerImageSrc2 = 'See You Again.jpg';
+      $playerTitle2 = 'SEE YOU AGAIN';
+      $playerArtist2 = 'TYLER';
 
       // Player 3
-      $musicSrc3 = 'Third Song.mp3'; // <-- Example: Use a different song
-      $playerImageSrc3 = 'Third Album Art.jpg'; // <-- Example: Use a different image
-      $playerTitle3 = 'THIRD SONG TITLE';
-      $playerArtist3 = 'THIRD ARTIST';
+      $musicSrc3 = 'heaven sent.mp3'; // <-- Example: Use a different song
+      $playerImageSrc3 = 'heaven sent.jpg'; // <-- Example: Use a different image
+      $playerTitle3 = 'HEAVEN SENT';
+      $playerArtist3 = 'TEVOMXNTANA';
     ?>
 
+    /* debug */
     background-image: url('<?php echo htmlspecialchars($backgroundImageSrc); ?>');
     background-size: cover;
     background-position: center;
@@ -114,6 +121,15 @@
   map area {
       cursor: pointer;
   }
+  /* *** ADDED: Cursor for leaf areas (optional) *** */
+  .leaf-hotspot-area {
+      cursor: pointer;
+  }
+  /* เพิ่ม cursor สำหรับ hotspot เสียงใหม่ (ถ้าต้องการ) */
+  .sound-hotspot-area {
+      cursor: pointer;
+  }
+
 
   /* --- Style for ALL Music Players (Bubble Effect) --- */
   .music-player { /* <-- Common class */
@@ -173,15 +189,15 @@
       display: none;
   }
 
-  /* .debug-area-overlay {
+  .debug-area-overlay {
     position: absolute;
     border: 2px dashed red;
     border-radius: 50%;  
     pointer-events: none; 
     box-sizing: border-box; 
     z-index: 999;
-    background-color: rgba(255, 0, 0, 0.1); สีแดงโปร่งๆ
-  } */
+    background-color: rgba(255, 0, 0, 0.1);
+  }
 
 
 </style>
@@ -252,6 +268,104 @@
       data-player-id="playMusic3" 
       data-audio-id="backgroundMusic3" 
     >
+ <!-- *** ADDED: Hotspots for leaf sounds (5 points) *** -->
+    <!-- (Adjust coords based on your image) -->
+    <area
+      shape="circle"
+      coords="110,270,50"
+      href="#"
+      alt="Leaf Sound Hotspot 1"
+      title="Rustle Leaves"
+      class="leaf-hotspot-area"
+    >
+    <area
+      shape="circle"
+      coords="220,325,25"
+      href="#"
+      alt="Leaf Sound Hotspot 2"
+      title="Rustle Leaves"
+      class="leaf-hotspot-area"
+    >
+     <area
+      shape="circle"
+      coords="0,480,100"
+      href="#"
+      alt="Leaf Sound Hotspot 3"
+      title="Rustle Leaves"
+      class="leaf-hotspot-area"
+    >
+     <area
+      shape="circle"
+      coords="700,500,40"
+      href="#"
+      alt="Leaf Sound Hotspot 4"
+      title="Rustle Leaves"
+      class="leaf-hotspot-area"
+    >
+     <area
+      shape="circle"
+      coords="600,440,25"
+      href="#"
+      alt="Leaf Sound Hotspot 5"
+      title="Rustle Leaves"
+      class="leaf-hotspot-area"
+    >
+    <!-- *** ADDED: Hotspots for new sounds *** -->
+    <area
+      shape="poly"
+      coords="18,27,139,45,144,351,31,355"
+      href="#"
+      alt="Mirror Sound Hotspot 1"
+      title="Tap Mirror 1"
+      class="sound-hotspot-area"
+      data-sound-id="mirrorSound"
+    >
+    <area
+      shape="poly"
+      coords="175,36,322,59,320,357,179,366" 
+      href="#"
+      alt="Mirror Sound Hotspot 2"
+      title="Tap Mirror 2"
+      class="sound-hotspot-area"
+      data-sound-id="mirrorSound"
+    >
+    <area
+      shape="poly"
+      coords="338,362,429,354,439,435,345,445" 
+      href="#"
+      alt="Screen Sound Hotspot"
+      title="Screen Hum"
+      class="sound-hotspot-area"
+      data-sound-id="screenSound"
+    >
+    <area
+      shape="poly"
+      coords="338,486,455,468,491,483,378,501" 
+      href="#"
+      alt="Keyboard Sound Hotspot"
+      title="Keyboard Click"
+      class="sound-hotspot-area"
+      data-sound-id="keyboardSound"
+    >
+    <area
+      shape="poly"
+      coords="579,125,680,109,721,126,750,154,749,202,686,208,683,287,653,287,649,339,576,284"
+      href="#"
+      alt="Paper Sound Hotspot 1"
+      title="Rustle Paper 1"
+      class="sound-hotspot-area"
+      data-sound-id="paperSound"
+    >
+    <area
+      shape="poly"
+      coords="409,153,463,155,462,275,440,274,437,250,413,246" 
+      href="#"
+      alt="Paper Sound Hotspot 2"
+      title="Rustle Paper 2"
+      class="sound-hotspot-area"
+      data-sound-id="paperSound"
+    >
+    <!-- *** End of added leaf hotspots *** -->
 
     <!-- Add more <area> tags here if needed -->
   </map>
@@ -259,6 +373,12 @@
   <!-- Audio Elements -->
   <audio id="lightSound" src="<?php echo htmlspecialchars($lightSoundSrc); ?>" preload="auto"></audio>
   <audio id="bubbleSound" src="<?php echo htmlspecialchars($bubbleSoundSrc); ?>" preload="auto"></audio>
+  <audio id="leafSound" src="<?php echo htmlspecialchars($leafSoundSrc); ?>" preload="auto"></audio> <!-- *** ADD THIS LINE BACK *** -->
+  <!-- *** ADDED: Audio elements for new sounds *** -->
+  <audio id="mirrorSound" src="<?php echo htmlspecialchars($mirrorSoundSrc); ?>" preload="auto"></audio>
+  <audio id="screenSound" src="<?php echo htmlspecialchars($screenSoundSrc); ?>" preload="auto"></audio>
+  <audio id="keyboardSound" src="<?php echo htmlspecialchars($keyboardSoundSrc); ?>" preload="auto"></audio>
+  <audio id="paperSound" src="<?php echo htmlspecialchars($paperSoundSrc); ?>" preload="auto"></audio>
   <!-- Add class to hide default controls if desired -->
   <audio id="backgroundMusic" class="audio-controls-hidden" src="<?php echo htmlspecialchars($musicSrc1); ?>" loop></audio>
   <audio id="backgroundMusic2" class="audio-controls-hidden" src="<?php echo htmlspecialchars($musicSrc2); ?>" loop></audio>
@@ -293,10 +413,22 @@
     const lightHotspotAreas = document.querySelectorAll('.light-hotspot-area');
     const lightSound = document.getElementById('lightSound');
     const bubbleSound = document.getElementById('bubbleSound');
+    const leafSound = document.getElementById('leafSound'); // <-- *** ADDED: Get leaf sound element ***
+    // *** ADDED: Get new sound elements ***
+    const mirrorSound = document.getElementById('mirrorSound');
+    const screenSound = document.getElementById('screenSound');
+    const keyboardSound = document.getElementById('keyboardSound');
+    const paperSound = document.getElementById('paperSound');
 
     // Get all music players and hotspots using the common class
     const musicPlayerElements = document.querySelectorAll('.music-player');
     const musicHotspotAreas = document.querySelectorAll('.music-hotspot-area[data-player-id]'); // Select only music hotspots
+
+    // *** ADDED: Get leaf hotspot elements ***
+    const leafHotspotAreas = document.querySelectorAll('.leaf-hotspot-area');
+
+    // *** ADDED: Get new sound hotspot elements *** <--- ใส่บรรทัดนี้เพิ่ม
+    const soundHotspotAreas = document.querySelectorAll('.sound-hotspot-area');
 
     // Store audio elements and playing state
     const audioElements = {};
@@ -317,8 +449,13 @@
     // --- Set Initial Volume ---
     if (bubbleSound) bubbleSound.volume = 0.7;
     if (lightSound) lightSound.volume = 1.0; // Example: Full volume for light
+    if (leafSound) leafSound.volume = 0.6; // <-- *** ADDED: Set initial leaf sound volume ***
+    if (mirrorSound) mirrorSound.volume = 0.5;
+    if (screenSound) screenSound.volume = 0.5;
+    if (keyboardSound) keyboardSound.volume = 0.5;
+    if (paperSound) paperSound.volume = 0.5;
     Object.values(audioElements).forEach(audio => {
-        if (audio) audio.volume = 0.5; // Set volume for all music tracks
+        if (audio) audio.volume = 0.4; // Set volume for all music tracks
     });
 
     // --- Function to Update Music Player Position ---
@@ -385,6 +522,7 @@
             area.addEventListener('click', function(event) {
               event.preventDefault();
               lightOverlay.classList.toggle('is-visible');
+              lightSound.play().catch(e => console.error("Light sound play failed:", e));
               // Play sound only when turning ON
               if (lightOverlay.classList.contains('is-visible')) {
                   lightSound.currentTime = 0;
@@ -455,7 +593,56 @@
         }
     });
 
+    // --- *** ADDED: Leaf Sound Logic *** ---
+    if (leafSound && leafHotspotAreas.length > 0) {
+        leafHotspotAreas.forEach(area => {
+            // Check if it's specifically a leaf area (not the main light switch area if it also has the class)
+            if (!area.hasAttribute('data-player-id') && area.title.toLowerCase().includes('rustle')) { // Added extra check on title just in case
+                area.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+
+                    // Randomize playbackRate for pitch variation
+                    // Value 1.0 is normal speed, > 1 faster (higher pitch), < 1 slower (lower pitch)
+                    // Random between 0.8 and 1.2 (adjust range as needed)
+                    const randomPlaybackRate = 0.8 + Math.random() * 0.4;
+                    leafSound.playbackRate = randomPlaybackRate;
+
+                    leafSound.currentTime = 0; // Restart sound from the beginning
+                    leafSound.play().catch(e => console.error("Leaf sound play failed:", e));
+                });
+            }
+        });
+    } else {
+        if (!leafSound) console.error("Could not find 'leafSound' audio element!");
+        if (leafHotspotAreas.length === 0) console.error("Could not find '.leaf-hotspot-area' elements!");
+    }
+    // --- *** End of added leaf sound logic *** ---
+
+    // --- *** ADDED: New Sound Hotspot Logic *** ---
+    soundHotspotAreas.forEach(area => {
+        const soundId = area.dataset.soundId;
+        const soundElement = document.getElementById(soundId);
+
+        if (soundElement) {
+            area.addEventListener('click', function(event) {
+                event.preventDefault(); // ป้องกันการเปลี่ยนหน้า
+
+                // Optional: Randomize playback rate like leaf sound
+                // const randomPlaybackRate = 0.9 + Math.random() * 0.2; // Adjust range if needed
+                // soundElement.playbackRate = randomPlaybackRate;
+
+                soundElement.currentTime = 0; // เริ่มเล่นเสียงใหม่ทุกครั้ง
+                soundElement.play().catch(e => console.error(`Sound play failed for ${soundId}:`, e));
+            });
+        } else {
+            console.error(`Could not find sound element with ID: ${soundId} for hotspot:`, area);
+            if (!soundId) console.error("Hotspot missing data-sound-id:", area);
+        }
+    });
+    // --- *** End of added new sound logic *** ---
+
     // --- Update position on window resize ---
+
     window.addEventListener('resize', () => {
         musicPlayerElements.forEach(player => {
             if (player.classList.contains('is-visible')) {
@@ -482,57 +669,96 @@
         });
     }
   
-//   // --- Function to Visualize Image Map Areas (for Debugging) ---
+// // --- Function to Visualize Image Map Areas (for Debugging) ---
 // function visualizeMapAreas(mapName, imageElement) {
 //     const map = document.querySelector(`map[name="${mapName}"]`);
-//     const areas = map ? map.querySelectorAll('area[shape="circle"]') : []; // ตอนนี้รองรับแค่วงกลม
+//     // *** UPDATED: Select both circle and poly shapes ***
+//     const areas = map ? map.querySelectorAll('area[shape="circle"], area[shape="poly"]') : [];
 //     const imageRect = imageElement.getBoundingClientRect();
-//     const container = imageElement.parentNode; // หา parent ที่จะใส่กรอบ
 
-//     // ลบกรอบเก่า (ถ้ามี)
+//     // --- Cleanup previous overlays ---
+//     // Remove old div overlays (if any were created by previous versions)
 //     document.querySelectorAll('.debug-area-overlay').forEach(el => el.remove());
+//     // Remove the main SVG overlay if it exists
+//     const existingSvgOverlay = document.getElementById('debug-svg-overlay');
+//     if (existingSvgOverlay) {
+//         existingSvgOverlay.remove();
+//     }
 
+//     // --- Create a single SVG overlay ---
+//     const svgNS = "http://www.w3.org/2000/svg"; // SVG Namespace
+//     const svgOverlay = document.createElementNS(svgNS, "svg");
+//     svgOverlay.setAttribute('id', 'debug-svg-overlay'); // ID for easy removal
+//     svgOverlay.style.position = 'absolute';
+//     svgOverlay.style.left = `${imageRect.left + window.scrollX}px`;
+//     svgOverlay.style.top = `${imageRect.top + window.scrollY}px`;
+//     svgOverlay.style.width = `${imageRect.width}px`; // Match image dimensions
+//     svgOverlay.style.height = `${imageRect.height}px`;
+//     svgOverlay.style.pointerEvents = 'none'; // Allow clicks to pass through
+//     svgOverlay.style.zIndex = 999; // Keep on top
+
+//     // --- Process each area ---
 //     areas.forEach(area => {
-//         const coords = area.coords.split(',').map(Number); // แปลง coords เป็นตัวเลข
-//         if (coords.length === 3) { // ต้องมี 3 ค่า: x, y, radius
-//             const [x, y, radius] = coords;
+//         const coords = area.coords.split(',').map(Number); // Convert coords to numbers
+//         const shape = area.getAttribute('shape').toLowerCase(); // Get shape type
 
-//             const overlay = document.createElement('div');
-//             overlay.className = 'debug-area-overlay';
+//         if (shape === 'circle' && coords.length === 3) {
+//             const [cx, cy, r] = coords;
 
-//             // คำนวณตำแหน่งและขนาดเทียบกับรูปภาพ
-//             // ตำแหน่ง left/top คือมุมบนซ้ายของกรอบสี่เหลี่ยมที่ครอบวงกลม
-//             overlay.style.left = `${imageRect.left + window.scrollX + x - radius}px`;
-//             overlay.style.top = `${imageRect.top + window.scrollY + y - radius}px`;
-//             overlay.style.width = `${radius * 2}px`;
-//             overlay.style.height = `${radius * 2}px`;
+//             const circle = document.createElementNS(svgNS, "circle");
+//             circle.setAttribute('cx', cx);
+//             circle.setAttribute('cy', cy);
+//             circle.setAttribute('r', r);
+//             circle.setAttribute('fill', 'rgba(255, 0, 0, 0.2)'); // Semi-transparent red fill
+//             circle.setAttribute('stroke', 'red');             // Red border
+//             circle.setAttribute('stroke-width', '2');         // Border width
 
-//             document.body.appendChild(overlay); // เพิ่มกรอบเข้าไปใน body
+//             svgOverlay.appendChild(circle); // Add circle to the SVG
+
+//         } else if (shape === 'poly' && coords.length >= 6 && coords.length % 2 === 0) {
+//             // Must have at least 3 points (6 coordinates) and an even number of coordinates
+//             let pointsString = '';
+//             for (let i = 0; i < coords.length; i += 2) {
+//                 pointsString += `${coords[i]},${coords[i+1]} `; // Format as "x1,y1 x2,y2 ..."
+//             }
+
+//             const polygon = document.createElementNS(svgNS, "polygon");
+//             polygon.setAttribute('points', pointsString.trim());
+//             polygon.setAttribute('fill', 'rgba(0, 0, 255, 0.2)'); // Semi-transparent blue fill for polys
+//             polygon.setAttribute('stroke', 'blue');            // Blue border for polys
+//             polygon.setAttribute('stroke-width', '2');        // Border width
+
+//             svgOverlay.appendChild(polygon); // Add polygon to the SVG
 //         }
+//         // else: Handle 'rect' or invalid coords if needed in the future
 //     });
+
+//     // --- Append the SVG overlay to the body ---
+//     if (svgOverlay.children.length > 0) { // Only append if shapes were added
+//        document.body.appendChild(svgOverlay);
+//     }
 // }
 
-//   // --- เรียกใช้ฟังก์ชันเมื่อรูปภาพโหลดเสร็จ หรือเมื่อต้องการ ---
-//   lightSwitchImage.addEventListener('load', () => {
-//       visualizeMapAreas('sceneHotspots', lightSwitchImage);
-//       // อาจจะต้องเรียกอีกครั้งหลัง resize ถ้าตำแหน่งรูปเปลี่ยน
-//   });
+// // --- เรียกใช้ฟังก์ชันเมื่อรูปภาพโหลดเสร็จ หรือเมื่อต้องการ ---
+// lightSwitchImage.addEventListener('load', () => {
+//     visualizeMapAreas('sceneHotspots', lightSwitchImage);
+// });
 
-//   // เรียกใช้เผื่อรูปโหลดเสร็จแล้ว (จาก cache)
-//   if (lightSwitchImage.complete && lightSwitchImage.naturalHeight !== 0) {
-//       visualizeMapAreas('sceneHotspots', lightSwitchImage);
-//   }
+// // เรียกใช้เผื่อรูปโหลดเสร็จแล้ว (จาก cache)
+// if (lightSwitchImage.complete && lightSwitchImage.naturalHeight !== 0) {
+//     visualizeMapAreas('sceneHotspots', lightSwitchImage);
+// }
 
-//   // เรียกใช้ซ้ำเมื่อมีการ resize หน้าจอ
-//   let resizeTimer;
-//   window.addEventListener('resize', () => {
-//       clearTimeout(resizeTimer);
-//       resizeTimer = setTimeout(() => {
-//           visualizeMapAreas('sceneHotspots', lightSwitchImage);
-//       }, 250); // หน่วงเวลาเล็กน้อยเพื่อประสิทธิภาพ
-//   });
+// // เรียกใช้ซ้ำเมื่อมีการ resize หน้าจอ
+// let resizeTimer;
+// window.addEventListener('resize', () => {
+//     clearTimeout(resizeTimer);
+//     resizeTimer = setTimeout(() => {
+//         visualizeMapAreas('sceneHotspots', lightSwitchImage);
+//     }, 250); // หน่วงเวลาเล็กน้อยเพื่อประสิทธิภาพ
+// });
 
-//   // --- สิ้นสุดส่วน Visualize ---
+// //   // --- สิ้นสุดส่วน Visualize ---
 
   </script>
 
